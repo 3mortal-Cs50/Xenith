@@ -11,6 +11,55 @@ Image rFlipH(Image img);
 Image ScaleDown(Image img, int wid, int hgt);
 //=======================================//
 //=======================================//
+Image lighten(Image img)
+{
+  for (int i = 0; i < img.width; ++i)
+  {
+    for (int j = 0; j < img.height; ++j)
+    {
+      img(i, j, 0) -= img(i, j, 0) / 2;
+      img(i, j, 1) -= img(i, j, 1) / 2;
+      img(i, j, 2) -= img(i, j, 2) / 2;
+    }
+  }
+  cout << "Done, Successfully\n";
+  return img;
+}
+//=======================================//
+//=======================================//
+Image blue(Image img)
+{
+  for (int i = 0; i < img.width; ++i)
+  {
+    for (int j = 0; j < img.height; ++j)
+    {
+      for (int k = 0; k < 2; ++k)
+      {
+        img(i, j, k) -= .5 * img(i, j, k);
+        if (img(i, j, k) > 255)
+          img(i, j, k) = 255;
+      }
+    }
+  }
+  cout << "Done, Successfully\n";
+  return img;
+}
+//=======================================//
+//=======================================//
+Image darken(Image img)
+{
+  for (int j = 0; j < img.height; ++j)
+  {
+    for (int i = 0; i < img.width; ++i)
+    {
+      for (int c = 0; c < 3; ++c)
+        img(i, j, c) = min(255, img(i, j, c) + 80);
+    }
+  }
+  return img;
+}
+//=======================================//
+//=======================================//
 Image GrayScale(Image img)
 {
   for (int i = 0; i < img.width; ++i)
@@ -252,14 +301,4 @@ Image Crop(Image img, int x1, int y1, int wdt, int hgt)
     }
   }
   return img1;
-}
-//=======================================//
-//=======================================//
-int main()
-{
-  Image img1("./imgs/luffy.jpg");
-  Image img2("./imgs/toy2.jpg");
-  Image img;
-  img = R(img1);
-  img.saveImage("scaled down.png");
 }
