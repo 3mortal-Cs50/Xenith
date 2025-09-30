@@ -9,9 +9,11 @@ Image FlipV(Image img);
 Image FlipH(Image img);
 Image rFlipH(Image img);
 Image ScaleDown(Image img, int wid, int hgt);
+Image lighten(Image img);
+Image darken(Image img);
 //=======================================//
 //=======================================//
-Image lighten(Image img)
+Image darken(Image img)
 {
   for (int i = 0; i < img.width; ++i)
   {
@@ -46,7 +48,7 @@ Image blue(Image img)
 }
 //=======================================//
 //=======================================//
-Image darken(Image img)
+Image lighten(Image img)
 {
   for (int j = 0; j < img.height; ++j)
   {
