@@ -24,7 +24,7 @@ Image darken(Image img)
       img(i, j, 2) -= img(i, j, 2) / 2;
     }
   }
-  cout << "Done, Successfully\n";
+
   return img;
 }
 //=======================================//
@@ -43,7 +43,7 @@ Image blue(Image img)
       }
     }
   }
-  cout << "Done, Successfully\n";
+
   return img;
 }
 //=======================================//
@@ -55,7 +55,7 @@ Image lighten(Image img)
     for (int i = 0; i < img.width; ++i)
     {
       for (int c = 0; c < 3; ++c)
-        img(i, j, c) = min(255, img(i, j, c) + 80);
+        img(i, j, c) = min(255, (int)(1.5 * img(i, j, c)));
     }
   }
   return img;
@@ -75,7 +75,7 @@ Image GrayScale(Image img)
       img(i, j, 2) = sum;
     }
   }
-  cout << "Done, Successfully\n";
+
   return img;
 }
 //=======================================//
@@ -103,7 +103,7 @@ Image BlackAndWhite(Image img)
       }
     }
   }
-  cout << "Done, Successfully\n";
+
   return img;
 }
 //=======================================//
@@ -119,7 +119,7 @@ Image Invert(Image img)
       img(i, j, 2) = 255 - img(i, j, 2);
     }
   }
-  cout << "Done, Successfully\n";
+
   return img;
 }
 //=======================================//
@@ -140,7 +140,7 @@ Image Merge(Image img1, Image img2)
       merged_img(i, j, 2) = (img2(i, j, 2) + img1(i, j, 2)) / 2;
     }
   }
-  cout << "Done, Successfully\n";
+
   return merged_img;
 }
 Image Merge2(Image img1, Image img2)
@@ -161,7 +161,7 @@ Image Merge2(Image img1, Image img2)
     }
     ratio += 1 / (double)miniw;
   }
-  cout << "Done, Successfully\n";
+
   return merged_img;
 }
 Image Merge3(Image img1, Image img2)
@@ -180,7 +180,7 @@ Image Merge3(Image img1, Image img2)
       merged_img(i, j, 2) = img2(i, j, 2, 0.5) + img1(i, j, 2, 0.5);
     }
   }
-  cout << "Done, Successfully\n";
+
   return merged_img;
 }
 //=======================================//
@@ -194,7 +194,7 @@ Image Opacity(Image img)
         img(i, j, k) = img(i, j, k, 0.2);
     }
   }
-  cout << "Done, Successfully\n";
+
   return img;
 }
 //=======================================//
@@ -238,7 +238,7 @@ Image FlipV(Image img)
       img1(i, k++, 2) = img(i, j, 2);
     }
   }
-  cout << "Done, Successfully\n";
+
   return img1;
 }
 //=======================================//
@@ -246,7 +246,7 @@ Image FlipV(Image img)
 Image FlipH(Image img)
 {
   img = rFlipH(img);
-  cout << "Done, Successfully\n";
+
   return img;
 }
 //=======================================//
